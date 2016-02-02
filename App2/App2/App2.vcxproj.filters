@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="通用">
+      <UniqueIdentifier>19cb7293-4fda-45e5-9caf-babd1e2cc846</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资产">
+      <UniqueIdentifier>f76d265d-b5b5-4115-ba8e-a822256a09af</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="内容">
+      <UniqueIdentifier>8eb67a38-2a29-45d1-8600-6ce77eff2a1a</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="Common\DirectXHelper.h">
+      <Filter>通用</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\StepTimer.h">
+      <Filter>通用</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\DeviceResources.h">
+      <Filter>通用</Filter>
+    </ClInclude>
+    <ClCompile Include="Common\DeviceResources.cpp">
+      <Filter>通用</Filter>
+    </ClCompile>
+    <ClInclude Include="Content\Sample3DSceneRenderer.h">
+      <Filter>内容</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\SampleFpsTextRenderer.h">
+      <Filter>内容</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ShaderStructures.h">
+      <Filter>内容</Filter>
+    </ClInclude>
+    <ClCompile Include="Content\Sample3DSceneRenderer.cpp">
+      <Filter>内容</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\SampleFpsTextRenderer.cpp">
+      <Filter>内容</Filter>
+    </ClCompile>
+    <FxCompile Include="Content\SamplePixelShader.hlsl">
+      <Filter>内容</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\SampleVertexShader.hlsl">
+      <Filter>内容</Filter>
+    </FxCompile>
+    <Image Include="Assets\Logo.png">
+      <Filter>资产</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.png">
+      <Filter>资产</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>资产</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>资产</Filter>
+    </Image>
+    <Filter Include="内容\File">
+      <UniqueIdentifier>{307c570c-2d80-42ea-a89f-faf5f77754b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Manager">
+      <UniqueIdentifier>{56dcef7a-af14-41c9-8ec4-bb471f9657df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Builder">
+      <UniqueIdentifier>{6ec083e2-51fe-43d0-a126-26492c6c2467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Scene">
+      <UniqueIdentifier>{6f45a3b9-a076-4735-83b3-24c3b8c3bd48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Scene\Object">
+      <UniqueIdentifier>{5dad74aa-0ff4-4dc1-b1f5-616fdf0a82fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Scene\Camera">
+      <UniqueIdentifier>{fcd85886-6ced-4363-8eb5-d8a37241e973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Simulator">
+      <UniqueIdentifier>{bb1d120b-268a-4d45-8156-32989e9286b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="内容\Scene\Object\Animation">
+      <UniqueIdentifier>{8f093923-8f04-43e4-8291-d793aad7c7eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="App2Main.cpp" />
+    <ClCompile Include="DirectXPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Content\ZLFileLoader.cpp">
+      <Filter>内容\File</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\ZLShaderManager.cpp">
+      <Filter>内容\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\ZLBufferManager.cpp">
+      <Filter>内容\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\ZLMeshObject.cpp">
+      <Filter>内容\Scene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\ZLEasyBuilder.cpp">
+      <Filter>内容\Builder</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\ZLCamera.cpp">
+      <Filter>内容\Scene\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="content\ZLMoniHands.cpp">
+      <Filter>内容\Simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="content\ZLObjectMover.cpp">
+      <Filter>内容\Scene\Object\Animation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="App2Main.h" />
+    <ClInclude Include="DirectXPage.xaml.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Content\ZLFileLoader.h">
+      <Filter>内容\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ZLShaderManager.h">
+      <Filter>内容\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ZLBufferManager.h">
+      <Filter>内容\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ZLMeshObject.h">
+      <Filter>内容\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ZLEasyBuilder.h">
+      <Filter>内容\Builder</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ZLCamera.h">
+      <Filter>内容\Scene\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="content\ZLMoniHands.h">
+      <Filter>内容\Simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="content\ZLObjectMover.h">
+      <Filter>内容\Scene\Object\Animation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App2_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DirectXPage.xaml" />
+  </ItemGroup>
+</Project>
