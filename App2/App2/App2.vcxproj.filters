@@ -80,6 +80,9 @@
     <Filter Include="内容\Scene\Object\Animation">
       <UniqueIdentifier>{8f093923-8f04-43e4-8291-d793aad7c7eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="内容\Math">
+      <UniqueIdentifier>{ea23ed37-1d0c-4872-81a4-8c4fe6d70da0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -113,6 +116,9 @@
     <ClCompile Include="content\ZLObjectMover.cpp">
       <Filter>内容\Scene\Object\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="content\ZL3DMath.cpp">
+      <Filter>内容\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.xaml.h" />
@@ -142,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="content\ZLObjectMover.h">
       <Filter>内容\Scene\Object\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="content\ZL3DMath.h">
+      <Filter>内容\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

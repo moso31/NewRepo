@@ -9,6 +9,7 @@ ZLCamera::ZLCamera()
 
 ZLCamera::ZLCamera(const std::shared_ptr<DX::DeviceResources>& deviceResources)
 {
+	zl_math = new ZL3DMath();
 	m_deviceResources = deviceResources;
 }
 
@@ -19,7 +20,7 @@ void ZLCamera::CameraBuild(float eyeX, float eyeY, float eyeZ, float atX, float 
 	float fovAngleY = 70.0f * XM_PI / 180.0f;
 
 	// 这是一个简单的更改示例，当应用程序在纵向视图或对齐视图中时，可以进行此更改
-	// 。
+	// 
 	if (aspectRatio < 1.0f)
 	{
 		fovAngleY *= 2.0f;
@@ -60,14 +61,42 @@ ZLCamera::~ZLCamera()
 {
 }
 
-void ZLCamera::CameraTranslation(XMFLOAT3 v)
+void ZLCamera::CameraTranslation(XMFLOAT3 v, bool isLR)
 {
-	m_eye.x += v.x;
-	m_eye.y += v.y;
-	m_eye.z += v.z;
-	m_at.x += v.x;
-	m_at.y += v.y;
-	m_at.z += v.z;
+	XMFLOAT4 direction;
+	//计算出移动方向direction
+	if (isLR)
+	{
+		direction = zl_math->FLOAT4xFLOAT4Cross(m_at - m_eye, m_up);
+		v = { direction.x * v.x, v.y, direction.z * v.x };
+	}
+	else
+	{
+		direction = m_eye - m_at;
+		v = { direction.x * v.z, v.y, direction.z * v.z };
+	}
+
+	m_eye += v;
+
+	if (isLR)
+	{
+		m_at += v;
+	}
+
+	Doit();
+}
+
+void ZLCamera::CameraRotation(XMFLOAT3 v)
+{ 
+	//v代表鼠标的移动量。
+	//eye围绕轴(at, at + up)进行旋转。 
+	XMFLOAT3 eye = { m_eye.x, m_eye.y, m_eye.z };
+	XMFLOAT3 v1 = { m_at.x, m_at.y, m_at.z };
+	XMFLOAT3 v2 = { m_at.x + m_up.x, m_at.y + m_up.y, m_at.z + m_up.z };
+
+	eye = zl_math->RotateAroundAxis(&eye, &v1, &v2, v.x * 3.0f);
+
+	m_eye = { eye.x, eye.y, eye.z, m_eye.w };
 
 	Doit();
 }

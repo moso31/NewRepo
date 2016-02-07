@@ -52,20 +52,28 @@ void Sample3DSceneRenderer::TrackingUpdate(float positionX, float positionY, boo
 {
 	m_leftPressed = lPress;
 	m_rightPressed = rPress;
+	m_move.x = positionX - m_lastMousePosition.x;
+	m_move.y = positionY - m_lastMousePosition.y;
+	m_move.x *= -0.001f;
+	m_move.y *= 0.001f;
+	m_move.z = 0.0f;
 
 	// 如果是在按下Ctrl时进行的鼠标操作，就改换摄像机的相对位置
 	if (m_KeyPressed == VirtualKey::Control)
 	{
-		m_move.x = positionX - m_lastMousePosition.x;
-		m_move.y = positionY - m_lastMousePosition.y;
-		m_move.x *= -0.001f;
-		m_move.y *= 0.001f;
-		zl_camera->CameraTranslation(m_move);
+		zl_camera->CameraRotation(m_move);
+	}
+
+	if (m_KeyPressed == VirtualKey::Shift)
+	{
+		zl_camera->CameraTranslation(m_move, true);
 	}
 
 	if (m_tracking)
 	{
-		//zl_mover->rotation(mod_centerObj, positionX, 0.0f, 0.0f);	
+		//一开始就在中间放个大正方体--测试用。
+		zl_mover->rotation(mod_centerObj, 0.2f, 0.0f, 0.0f);
+
 		//记录本次鼠标按下后的位移量
 		m_move.x = positionX - m_lastClick.x;
 		m_move.y = positionY - m_lastClick.y;
@@ -94,6 +102,12 @@ void Sample3DSceneRenderer::StopTracking()
 
 void App2::Sample3DSceneRenderer::WheelChanged(float positionX, float positionY, int delta)
 {
+	if (m_KeyPressed == VirtualKey::Shift)
+	{
+		m_move.z = delta / 120.0f * -0.05f;
+		zl_camera->CameraTranslation(m_move, false);
+	}
+
 	if (m_leftPressed) {
 		m_move = { 0.0f, 0.0f, delta / 120.0f * -0.05f };
 
@@ -137,7 +151,7 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 	// 创建中心物体。
 	mod_centerObj = new ZLMeshObject(m_deviceResources);
 
-	zl_builder->CreateCube(mod_centerObj, 0.05f);
+	zl_builder->CreateCube(mod_centerObj, 0.5f);
 	m_loadingComplete = true;
 }
 

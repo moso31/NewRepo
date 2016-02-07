@@ -24,6 +24,14 @@ void ZLObjectMover::rotation(ZLMeshObject *obj, FXMVECTOR v)
 	XMStoreFloat4x4(&obj->m_Model, XMMatrixTranspose(m));
 }
 
+void ZLObjectMover::revolutionAroundAxis(ZLMeshObject * obj, XMFLOAT3 axis, XMFLOAT3 r)
+{
+	XMMATRIX m;
+	m = XMMatrixTranslation(axis.z, axis.x, axis.y);
+	m *= XMMatrixRotationRollPitchYaw(r.z, r.x, r.y);
+	XMStoreFloat4x4(&obj->m_Model, XMMatrixTranspose(m));
+}
+
 void ZLObjectMover::translation(ZLMeshObject * obj, float x, float y, float z) {
 	XMMATRIX m = XMMatrixTranslation(x, y, z);
 	XMStoreFloat4x4(&obj->m_Model, XMMatrixTranspose(m));
